@@ -13,14 +13,14 @@ echo "Server IP: $SERVER_IP"
 
 docker pull cklein/httpmon
 
-docker run --rm cklein/httpmon --url https://$SERVER_IP/Barack_Obama.html --concurrency 2500 --thinktime 10 &
+docker run --rm cklein/httpmon --url https://$SERVER_IP/Barack_Obama.html --concurrency 5000 --thinktime 10 &
 PID_HTTPMON=$!
-sleep 30
+sleep 100
 kill $PID_HTTPMON
 
 docker run --rm cklein/httpmon --url https://$SERVER_IP/Barack_Obama.html --concurrency 10 --thinktime 10 &
 PID_HTTPMON=$!
-sleep 30
+sleep 60
 kill $PID_HTTPMON
 
 kill $PID_STATS
